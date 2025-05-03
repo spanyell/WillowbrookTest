@@ -20,7 +20,7 @@ struct StoryView: View
         {
             ZStack
             {
-                StormView()
+                RainView()
                 VStack
                 {
                     Text("\(currentPage.storyText)")
