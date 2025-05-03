@@ -7,34 +7,21 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        ZStack {
-            StoryView(choiceMade: .constant(0))
-
-
-            //            NavigationStack {
-            //                        NavigationLink(
-            //                            destination: StoryView(choiceMade: .constant(0)),
-            //                            label:
-            //                                {
-            //                                    Text("Play Game")
-            //                                })
+struct ContentView: View
+{
+    var body: some View
+    {
+        ZStack
+        {
+            StartView()
         }
-        //           MainMenuView()
-
-        
+        .preferredColorScheme(.dark)
     }
-  //      .ignoresSafeArea()
-
-        
-
-        
-            
     
 }
 
-#Preview {
+#Preview
+{
     ContentView()
         .preferredColorScheme(.dark)
 }
