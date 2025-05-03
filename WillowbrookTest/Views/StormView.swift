@@ -33,61 +33,61 @@ struct StormView: View {
     var body: some View {
         ZStack {
             Color(flashEffect ? .white : .black)
-//            Image("trees_background")
-//                .resizable()
-//                .clipped()
-//                .scaledToFit()
-//                .aspectRatio(contentMode: .fill)
-//                .scaleEffect(imageScale)
-//                .offset(y: offsetImage ? -200 : 0)
-//                .onAppear() {
-//                    withAnimation(.linear(duration: 20.0)) {
-//                        setScale(scale: 2)
-//                        offsetImage.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.2) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.6) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.1) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 15.2) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
-//                        flashEffect.toggle()
-//                    }
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 19.1) {
-//                        flashEffect.toggle()
-//                    }
-//                }
+            Image("trees_background")
+                .resizable()
+                .clipped()
+                .scaledToFit()
+                .aspectRatio(contentMode: .fill)
+                .scaleEffect(imageScale)
+                .offset(y: offsetImage ? -200 : 0)
+                .onAppear() {
+                    withAnimation(.linear(duration: 20.0)) {
+                        setScale(scale: 2)
+                        offsetImage.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.2) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.6) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.1) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 15.2) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19.1) {
+                        flashEffect.toggle()
+                    }
+                }
             TimelineView(.animation) { timeline in
                 Canvas { context, size in
                     storm.update(to: timeline.date)
