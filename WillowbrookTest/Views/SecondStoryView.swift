@@ -17,6 +17,7 @@ struct SecondStoryView: View
     var body: some View
     {
         let currentPage: Willowbrook = willowbrookData[choiceMade]
+        
         NavigationStack
         {
             ZStack

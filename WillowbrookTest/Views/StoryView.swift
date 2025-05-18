@@ -51,6 +51,7 @@ struct StoryView: View
                         .padding()
                         .opacity(opacityStoryText ? 1 : 0)
                         .shadow(radius: shadowStoryText ? 5 : 10)
+                    
                     // Not 100% sure the colors even matter.
                         .addGlowEffect(color1: .green, color2: .yellow, color3: .blue)
                         .onAppear
