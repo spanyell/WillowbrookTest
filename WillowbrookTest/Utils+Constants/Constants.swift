@@ -5,11 +5,12 @@
 //  Created by Dan Beers on 5/2/25.
 //
 
-import Foundation
 import AVKit
+import Foundation
 import SwiftUI
 
-struct Constants {
+struct Constants
+{
     static let RainAndThunder = NSDataAsset(name: "RainAndThunder")
     static let ThunderCrash = NSDataAsset(name: "ThunderCrash")
     static let MainViewMuic = NSDataAsset(name: "MainViewMusic")

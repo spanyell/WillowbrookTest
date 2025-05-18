@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Willowbrook: Decodable {
+struct Willowbrook: Decodable
+{
     let id: Int
     let storyText: String
     let choice1: String

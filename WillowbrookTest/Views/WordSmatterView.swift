@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct WordSmatterView: View
 {
     @State private var leafLetterW = false
@@ -45,7 +44,7 @@ struct WordSmatterView: View
                             {
                                 leafLetterW.toggle()
                             }
-               //             SoundManager.instance.playSound(sound: .RainAndThunder)
+                            //             SoundManager.instance.playSound(sound: .RainAndThunder)
                         }
 
                     Text("O")
@@ -231,11 +230,11 @@ struct WordSmatterView: View
                     }
                 }
         }
-
     }
 }
 
-#Preview {
+#Preview
+{
     WordSmatterView()
         .preferredColorScheme(.dark)
 }

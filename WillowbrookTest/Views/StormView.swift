@@ -7,17 +7,19 @@
 
 import SwiftUI
 
-
-struct StormView: View {
+struct StormView: View
+{
     @StateObject private var storm = Storm()
     @State private var flashEffect = false
     @State private var imageScale = 1.5
     @State private var offsetImage = false
     let rainColor = Color(.darkGray)
- //   let blackTrees = Image("water_fountain")
+    //   let blackTrees = Image("water_fountain")
 
-    var body: some View {
-        ZStack {
+    var body: some View
+    {
+        ZStack
+        {
             Color(flashEffect ? .white : .black)
             Image("inverted_water_fountain")
                 .resizable()
@@ -26,59 +28,78 @@ struct StormView: View {
                 .aspectRatio(contentMode: .fill)
                 .scaleEffect(imageScale)
                 .offset(y: offsetImage ? -200 : 0)
-                .onAppear() {
-                    withAnimation(.linear(duration: 20.0)) {
+                .onAppear
+                {
+                    withAnimation(.linear(duration: 20.0))
+                    {
                         setScale(scale: 2)
                         offsetImage.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.6)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.2)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.5)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.6) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.6)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.1)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 15)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 15.2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 15.2)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 19) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19)
+                    {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 19.1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19.1)
+                    {
                         flashEffect.toggle()
                     }
                 }
-            TimelineView(.animation) { timeline in
-                Canvas { context, size in
+            TimelineView(.animation)
+            { timeline in
+                Canvas
+                { context, size in
                     storm.update(to: timeline.date)
 
-                    for drop in storm.drops {
+                    for drop in storm.drops
+                    {
                         let age = timeline.date.distance(to: drop.removalDate)
                         let rect = CGRect(x: drop.x * size.width, y: size.height - (size.height * age * drop.speed), width: 1, height: 25)
                         let shape = Capsule().path(in: rect)
@@ -86,11 +107,12 @@ struct StormView: View {
                     }
                 }
             }
-        .ignoresSafeArea()
+            .ignoresSafeArea()
         }
-
     }
-    func setScale(scale: Double) {
+
+    func setScale(scale: Double)
+    {
         imageScale = scale
     }
 }

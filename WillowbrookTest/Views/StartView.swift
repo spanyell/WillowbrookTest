@@ -62,7 +62,6 @@ struct StartView: View
                                     .rotation3DEffect(.degrees(flipAngleNewGame), axis: (x: 0.0, y: 1.0, z: 0.0))
                                     .animation(.default.delay(Double(flip) * 0.1),
                                                value: flipAngleNewGame)
-
                             }
                             .simultaneousGesture(TapGesture().onEnded
                             {

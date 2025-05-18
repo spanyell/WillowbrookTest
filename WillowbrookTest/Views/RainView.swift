@@ -11,7 +11,7 @@ struct RainView: View
 {
     @StateObject private var storm = Storm()
     let rainColor = Color(.darkGray)
-    
+
     var body: some View
     {
         ZStack
@@ -21,7 +21,7 @@ struct RainView: View
                 Canvas
                 { context, size in
                     storm.update(to: timeline.date)
-                    
+
                     for drop in storm.drops
                     {
                         let age = timeline.date.distance(to: drop.removalDate)
@@ -35,6 +35,7 @@ struct RainView: View
         }
     }
 }
+
 #Preview
 {
     RainView()
