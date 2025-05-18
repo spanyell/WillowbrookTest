@@ -8,18 +8,18 @@
 import AVKit
 import SwiftUI
 
-protocol SoundControl {
-    func playMusicPlayer(data: Data)
-    func stopMusicPlayer()
-    func playEffectPlayer1(data: Data)
-    func stopEffectPlayer1()
-    func playAmbiencePlayer1(data: Data)
-    func stopAmbiencePlayer1()
-    
-}
+//protocol SoundControl {
+//    func playMusicPlayer(data: Data)
+//    func stopMusicPlayer()
+//    func playEffectPlayer1(data: Data)
+//    func stopEffectPlayer1()
+//    func playAmbiencePlayer1(data: Data)
+//    func stopAmbiencePlayer1()
+//    
+//}
 
 @Observable
-class SoundManager: SoundControl
+class SoundManager
 {
     var musicPlayer: AVAudioPlayer?
     var effectPlayer1: AVAudioPlayer?

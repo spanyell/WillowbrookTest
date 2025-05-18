@@ -157,7 +157,7 @@
  },
  {
    "id": 13,
-   "storyText": "You step up to the front porch of the great house. The front door has a key sticking out of its lock",
+   "storyText": "You step up to the front porch of the great house. The front door has a key sticking out of its lock.",
    "choice1": "Head back to the path",
    "choice1Destination": 14,
    "choice2": "Take the key",

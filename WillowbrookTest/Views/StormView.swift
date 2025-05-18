@@ -14,12 +14,12 @@ struct StormView: View {
     @State private var imageScale = 1.5
     @State private var offsetImage = false
     let rainColor = Color(.darkGray)
-    let blackTrees = Image("trees_background")
+ //   let blackTrees = Image("water_fountain")
 
     var body: some View {
         ZStack {
             Color(flashEffect ? .white : .black)
-            Image("trees_background")
+            Image("inverted_water_fountain")
                 .resizable()
                 .clipped()
                 .scaledToFit()
