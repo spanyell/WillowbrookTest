@@ -55,7 +55,7 @@ struct StartView: View
                         // New Game
                         ForEach(0 ..< newGame.count, id: \.self)
                         { flip in
-                            NavigationLink(destination: StoryView(choiceMade: .constant(0)))
+                            NavigationLink(destination: OnceUponView())
                             {
                                 Text(String(newGame[flip]))
                                     .font(Font.custom("Hoefler Text", size: 20))
