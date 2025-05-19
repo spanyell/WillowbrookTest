@@ -13,6 +13,10 @@ struct SecondStoryView: View
     @State private var opacityText = false
     @State private var shadowText = false
     @State private var offsetChoices = false
+    @State private var spinEffect = false
+    @State private var getLargerEffect = false
+    @State private var unblurEffect = false
+    @State private var offsetEffect = false
 
     var body: some View
     {
@@ -33,6 +37,33 @@ struct SecondStoryView: View
                         .foregroundStyle(.white)
                         .frame(width: 400)
                         .padding()
+                        .font(Font.custom("Hoefler Text", size: 25))
+                        .rotationEffect(spinEffect ? .degrees(0) : .degrees(360))
+                        .scaleEffect(getLargerEffect ? 1.0 : 0)
+                        .offset(y: offsetEffect ? -200 : 500)
+                        .blur(radius: unblurEffect ? 0 : 100)
+                        
+                        .onAppear {
+                            withAnimation(Animation
+                                            .linear(duration: 4)
+                                            .repeatCount(3, autoreverses: false))
+                            {
+                                spinEffect.toggle()
+                            }
+                            withAnimation(Animation
+                                            .linear(duration: 12))
+                            {
+                                getLargerEffect.toggle()
+                                offsetEffect.toggle()
+                            }
+                            withAnimation(Animation
+                                            .easeInOut(duration: 12))
+                            {
+
+                                unblurEffect.toggle()
+                            }
+                        }
+                    
                     Ellipse()
                         .fill(.white)
                         .frame(width: 400, height: 10)
@@ -41,10 +72,10 @@ struct SecondStoryView: View
                         .shadow(radius: shadowText ? 5 : 10)
                         .addGlowEffect(color1: .white, color2: .gray, color3: .white)
                         .onAppear {
-                            withAnimation(.linear(duration: 5)) {
+                            withAnimation(.linear(duration: 12)) {
                                 opacityText.toggle()
                             }
-                            withAnimation(.linear(duration: 10)) {
+                            withAnimation(.linear(duration: 12)) {
                                 shadowText.toggle()
                             }
                         }
@@ -103,7 +134,7 @@ struct SecondStoryView: View
                 .navigationBarBackButtonHidden(true)
                 .ignoresSafeArea()
                 .onAppear {
-                    withAnimation(.linear(duration: 5)) {
+                    withAnimation(.linear(duration: 12)) {
                         offsetChoices.toggle()
                     
                         

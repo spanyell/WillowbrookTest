@@ -16,6 +16,8 @@ struct StartView: View
     let quitGame = Array("QUIT GAME")
 
     var soundManager = SoundManager()
+    
+    @Namespace private var namespace
 
     @State private var counter = 0
     @State private var fadeInMenu = false
@@ -59,6 +61,7 @@ struct StartView: View
                                     .font(Font.custom("Hoefler Text", size: 20))
                                     .foregroundColor(.white)
                                     .opacity(fadeInMenu ? 1 : 0)
+                                    .navigationTransition(.zoom(sourceID: "zoom", in: namespace))
                                     .rotation3DEffect(.degrees(flipAngleNewGame), axis: (x: 0.0, y: 1.0, z: 0.0))
                                     .animation(.default.delay(Double(flip) * 0.1),
                                                value: flipAngleNewGame)

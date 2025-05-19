@@ -11,35 +11,38 @@ struct StormView: View
 {
     @StateObject private var storm = Storm()
     @State private var flashEffect = false
-    @State private var imageScale = 1.5
+    @State private var imageScale = 1.0
     @State private var offsetImage = false
+    @State private var brightenImage = false
+    
     let rainColor = Color(.darkGray)
-    //   let blackTrees = Image("water_fountain")
 
     var body: some View
     {
         ZStack
         {
             Color(flashEffect ? .white : .black)
-            Image("inverted_water_fountain")
-                .resizable()
-                .clipped()
-                .scaledToFit()
-                .aspectRatio(contentMode: .fill)
-                .scaleEffect(imageScale)
-                .offset(y: offsetImage ? -200 : 0)
+//            Image("inverted_water_fountain")
+//                .resizable()
+//                .clipped()
+//                .scaledToFit()
+//                .aspectRatio(contentMode: .fill)
+//                .scaleEffect(imageScale)
+//                .offset(y: offsetImage ? -200 : 0)
+//                .brightness(brightenImage ? -0.96 : -1)
                 .onAppear
                 {
                     withAnimation(.linear(duration: 20.0))
                     {
-                        setScale(scale: 2)
-                        offsetImage.toggle()
+//                        setScale(scale: 1.1)
+//                        brightenImage.toggle()
+//                        offsetImage.toggle()
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1)
                     {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.1)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.05)
                     {
                         flashEffect.toggle()
                     }
@@ -47,7 +50,7 @@ struct StormView: View
                     {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.6)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.55)
                     {
                         flashEffect.toggle()
                     }
@@ -55,7 +58,7 @@ struct StormView: View
                     {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.2)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.1)
                     {
                         flashEffect.toggle()
                     }
@@ -63,7 +66,7 @@ struct StormView: View
                     {
                         flashEffect.toggle()
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.6)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.55)
                     {
                         flashEffect.toggle()
                     }
@@ -91,7 +94,9 @@ struct StormView: View
                     {
                         flashEffect.toggle()
                     }
+                    
                 }
+            
             TimelineView(.animation)
             { timeline in
                 Canvas
@@ -107,8 +112,8 @@ struct StormView: View
                     }
                 }
             }
-            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
     }
 
     func setScale(scale: Double)

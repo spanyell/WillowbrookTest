@@ -12,6 +12,8 @@ struct StoryView: View
 {
     @Binding var choiceMade: Int
 
+    @Namespace private var namespace
+
     // StoryText States
     @State private var opacityStoryText = false
     @State private var blurStoryText = false
@@ -31,7 +33,7 @@ struct StoryView: View
         {
             ZStack
             {
-                RainView()
+                StormView()
 
                 VStack
                 {
@@ -47,7 +49,7 @@ struct StoryView: View
                     // Ellipse glow
                     Ellipse()
                         .fill(.white)
-                        .frame(width: 400, height: 10)
+                        .frame(width: 375, height: 10)
                         .padding()
                         .opacity(opacityStoryText ? 1 : 0)
                         .shadow(radius: shadowStoryText ? 5 : 10)
@@ -76,6 +78,7 @@ struct StoryView: View
                             .offset(y: offsetChoices ? 0 : 300)
                             .opacity(opacityChoices ? 1 : 0)
                             .blur(radius: blurChoices ? 0 : 10)
+                            .navigationTransition(.zoom(sourceID: "zoom", in: namespace))
                     }
 
                     // Optional choices
@@ -90,6 +93,7 @@ struct StoryView: View
                                 .offset(y: offsetChoices ? 0 : 300)
                                 .opacity(opacityChoices ? 1 : 0)
                                 .blur(radius: blurChoices ? 0 : 10)
+                                .navigationTransition(.zoom(sourceID: "zoom", in: namespace))
                         }
                     }
                     if currentPage.choice3Destination != nil
@@ -103,6 +107,7 @@ struct StoryView: View
                                 .offset(y: offsetChoices ? 0 : 300)
                                 .opacity(opacityChoices ? 1 : 0)
                                 .blur(radius: blurChoices ? 0 : 10)
+                                .navigationTransition(.zoom(sourceID: "zoom", in: namespace))
                         }
                     }
                     if currentPage.choice4Destination != nil
@@ -116,6 +121,7 @@ struct StoryView: View
                                 .offset(y: offsetChoices ? 0 : 300)
                                 .opacity(opacityChoices ? 1 : 0)
                                 .blur(radius: blurChoices ? 0 : 10)
+                                .navigationTransition(.zoom(sourceID: "zoom", in: namespace))
                         }
                     }
                 }
