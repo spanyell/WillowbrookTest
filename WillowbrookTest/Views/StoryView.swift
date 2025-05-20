@@ -33,8 +33,9 @@ struct StoryView: View
         {
             ZStack
             {
-                StormView()
-
+                TransitionStormView()
+//                StormView()
+                
                 VStack
                 {
                     // Story Text
@@ -69,7 +70,7 @@ struct StoryView: View
                         }
 
                     // Choices
-                    NavigationLink(destination: StoryView(choiceMade: .constant(currentPage.choice1Destination)))
+                    NavigationLink(destination: SecondStoryView(choiceMade: .constant(currentPage.choice1Destination)))
                     {
                         Text("\(currentPage.choice1)")
                             .font(Font.custom("Hoefler Text", size: 20))
@@ -84,7 +85,7 @@ struct StoryView: View
                     // Optional choices
                     if currentPage.choice2Destination != nil
                     {
-                        NavigationLink(destination: StoryView(choiceMade: .constant(currentPage.choice2Destination ?? 0)))
+                        NavigationLink(destination: SecondStoryView(choiceMade: .constant(currentPage.choice2Destination ?? 0)))
                         {
                             Text("\(currentPage.choice2 ?? "")")
                                 .font(Font.custom("Hoefler Text", size: 20))
@@ -98,7 +99,7 @@ struct StoryView: View
                     }
                     if currentPage.choice3Destination != nil
                     {
-                        NavigationLink(destination: StoryView(choiceMade: .constant(currentPage.choice3Destination ?? 0)))
+                        NavigationLink(destination: SecondStoryView(choiceMade: .constant(currentPage.choice3Destination ?? 0)))
                         {
                             Text("\(currentPage.choice3 ?? "")")
                                 .font(Font.custom("Hoefler Text", size: 20))
@@ -112,7 +113,7 @@ struct StoryView: View
                     }
                     if currentPage.choice4Destination != nil
                     {
-                        NavigationLink(destination: StoryView(choiceMade: .constant(currentPage.choice4Destination ?? 0)))
+                        NavigationLink(destination: SecondStoryView(choiceMade: .constant(currentPage.choice4Destination ?? 0)))
                         {
                             Text("\(currentPage.choice4 ?? "")")
                                 .font(Font.custom("Hoefler Text", size: 20))

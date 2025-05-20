@@ -1,0 +1,127 @@
+//
+//  TransitionStormView.swift
+//  WillowbrookTest
+//
+//  Created by Dan Beers on 5/19/25.
+//
+
+import SwiftUI
+
+struct TransitionStormView: View
+{
+    @StateObject private var storm = Storm()
+    @State private var flashEffect = false
+    @State private var imageScale = 1.0
+    @State private var offsetImage = false
+    @State private var brightenImage = false
+    
+    let rainColor = Color(.darkGray)
+
+    var body: some View
+    {
+        ZStack
+        {
+            Color(flashEffect ? .white : .black)
+//            Image("inverted_water_fountain")
+//                .resizable()
+//                .clipped()
+//                .scaledToFit()
+//                .aspectRatio(contentMode: .fill)
+//                .scaleEffect(imageScale)
+//                .offset(y: offsetImage ? -200 : 0)
+//                .brightness(brightenImage ? -0.96 : -1)
+                .onAppear
+                {
+                    withAnimation(.linear(duration: 20.0))
+                    {
+//                        setScale(scale: 1.1)
+//                        brightenImage.toggle()
+//                        offsetImage.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now())
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.3)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.1)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19)
+                    {
+                        flashEffect.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 19.1)
+                    {
+                        flashEffect.toggle()
+                    }
+                    
+                }
+            
+            TimelineView(.animation)
+            { timeline in
+                Canvas
+                { context, size in
+                    storm.update(to: timeline.date)
+
+                    for drop in storm.drops
+                    {
+                        let age = timeline.date.distance(to: drop.removalDate)
+                        let rect = CGRect(x: drop.x * size.width, y: size.height - (size.height * age * drop.speed), width: 1, height: 25)
+                        let shape = Capsule().path(in: rect)
+                        context.fill(shape, with: .color(rainColor))
+                    }
+                }
+            }
+        }
+        .ignoresSafeArea()
+    }
+
+    func setScale(scale: Double)
+    {
+        imageScale = scale
+    }
+}
+
+#Preview {
+    TransitionStormView()
+}
