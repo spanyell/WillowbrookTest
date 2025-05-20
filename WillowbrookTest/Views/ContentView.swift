@@ -13,13 +13,12 @@ struct ContentView: View
     {
         ZStack
         {
-//            StartView()
-            
-            StoryView(choiceMade: .constant(0))
+            StartView()
+
+            //         StoryView(choiceMade: .constant(0))
         }
         .preferredColorScheme(.dark)
     }
-    
 }
 
 #Preview

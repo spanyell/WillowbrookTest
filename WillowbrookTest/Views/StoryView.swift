@@ -130,7 +130,7 @@ struct StoryView: View
                 .ignoresSafeArea()
                 .onAppear
                 {
-                    withAnimation(.easeInOut(duration: 5))
+                    withAnimation(.easeInOut(duration: 7))
                     {
                         blurStoryText.toggle()
                         spinStoryText.toggle()

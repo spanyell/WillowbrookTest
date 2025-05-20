@@ -11,11 +11,13 @@ import SwiftUI
 
 struct Constants
 {
+    // Music
     static let RainAndThunder = NSDataAsset(name: "RainAndThunder")
     static let ThunderCrash = NSDataAsset(name: "ThunderCrash")
     static let MainViewMuic = NSDataAsset(name: "MainViewMusic")
 }
 
+// I don't understand how this works at all. I could use a refresher and possibily a more concise version of this.
 extension View
 {
     func addGlowEffect(color1: Color, color2: Color, color3: Color) -> some View
